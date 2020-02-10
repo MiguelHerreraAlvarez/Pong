@@ -7,7 +7,7 @@ int playerWidth, playerHeight, playerSpeed;
 int player1X, player1Y, player2X, player2Y;
 boolean player1Up, player1Down, player2Up, player2Down;
 
-int player1Score = 9;
+int player1Score = 0;
 int player2Score = 0;
 int winScore = 10;
 
@@ -38,7 +38,7 @@ void setup() {
   bounce = new SoundFile(this,"ping_pong_8bit_plop.wav");
   goal = new SoundFile(this,"ping_pong_8bit_beeep.wav");
   winSong = new SoundFile(this,"custers_revenge.wav");
-  font=createFont("bit.ttf",32);
+  font = createFont("bit.ttf",32);
 }
 
 void draw() {
