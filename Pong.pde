@@ -11,7 +11,7 @@ int player1Score = 0;
 int player2Score = 0;
 int winScore = 10;
 
-boolean win;
+boolean start, win;
 
 SoundFile bounce;
 SoundFile goal;
@@ -20,7 +20,7 @@ SoundFile winSong;
 PFont font;
 
 void setup() {
-  win = true;
+  win = false;
   size(1152,640);
   ballX = width/2; 
   ballY = height/2;
@@ -39,19 +39,27 @@ void setup() {
   goal = new SoundFile(this,"ping_pong_8bit_beeep.wav");
   winSong = new SoundFile(this,"custers_revenge.wav");
   font = createFont("bit.ttf",32);
+  textFont(font);
 }
 
 void draw() {
+  
+  if(mousePressed) start = true;
+  
   drawField(255);
-  drawBall();
-  moveBall();
-  bounceOff();
-  drawPlayers();
-  movePlayers();
-  restrictPlayers();
-  contactWithPlayer();
   scores();
+  drawPlayers();
   gameOver();
+  
+  if(start){
+    drawBall();
+    moveBall();
+    bounceOff();
+    movePlayers();
+    restrictPlayers();
+    contactWithPlayer();
+  } else if(!win) clickToStart();
+    
 }
 
 void drawField(int n){
@@ -63,6 +71,12 @@ void drawField(int n){
   
   for(int i = 2; i <= 52; i+=2)
     rect(width/2,20*i,20,20);
+}
+
+void clickToStart(){
+  fill(255);
+  textSize(60);
+  text("Click to start", width/2 + 30, height/3 - 40);
 }
 
 void drawBall() {
@@ -144,11 +158,9 @@ void contactWithPlayer() {
 }
 
 void scores() {
-  textFont(font);
   textSize(100);
-  textAlign(CENTER, CENTER);
-  text(player1Score, 100, 90);
-  text(player2Score, width-100, 90);
+  text(player1Score, 100, 110);
+  text(player2Score, width-130, 110);
 }
 
 void gameOver() {
@@ -160,26 +172,28 @@ void gameOver() {
 }
 
 void gameOverPage(String text) {
+  start = false;
   ballSpeedX = 0.0;
   ballSpeedY = 0.0;
   
-  if(win) {
+  if(!win) {
     winSong.play();
-    win = false;
+    win = true;
   }
   
   drawField(0);
   fill(255);
   textSize(60);
-  text("Game over", width/2, height/3 - 40);
-  text(text, width/2, height/3);
-  text("\nClick to play again", width/2, height/3 + 40);
+  text("Game over", width/2 - 140, height/3 - 40);
+  text(text, width/2 - 200, height/3);
+  text("\nClick to play again", width/2 - 290, height/3 + 40);
   
   if(mousePressed){
+    win = false;
     player1Score = 0;
     player2Score = 0;
-    ballSpeedX = 4.0;
-    ballSpeedY = 3.0;
+    ballSpeedX = 5.0;
+    ballSpeedY = 4.0;
   }
 }
  
