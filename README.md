@@ -21,4 +21,4 @@ The code consist in a _setup()_ method where initialice all the variables and a 
 - [Bit 5x3 Font](https://www.mattlag.com/bitfonts/)
 
 ## Take a peek of result
-![](pong.gif)
+![](tools/gifs/pong.gif)
