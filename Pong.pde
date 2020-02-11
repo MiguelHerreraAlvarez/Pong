@@ -35,10 +35,10 @@ void setup() {
   player2X = width - playerWidth*2;
   player2Y = height/2 - playerHeight/2;
   playerSpeed = 5;
-  bounce = new SoundFile(this,"ping_pong_8bit_plop.wav");
-  goal = new SoundFile(this,"ping_pong_8bit_beeep.wav");
-  winSong = new SoundFile(this,"custers_revenge.wav");
-  font = createFont("bit.ttf",32);
+  bounce = new SoundFile(this,"tools/sounds/ping_pong_8bit_plop.wav");
+  goal = new SoundFile(this,"tools/sounds/ping_pong_8bit_beeep.wav");
+  winSong = new SoundFile(this,"tools/sounds/custers_revenge.wav");
+  font = createFont("tools/fonts/bit.ttf",32);
   textFont(font);
 }
 
