@@ -2,7 +2,7 @@
 ## About the author
 Miguel Herrera Álvarez. Last-year Computer Engineering student in the University of Las Palmas de Gran Canaria.
 
-## Developt
+## Develop
 Try to remake original Pong game using Processing for it developt.
 The code consist in a _setup()_ method where initialice all the variables and a _draw()_ method which call other auxiliar methods who paint the frame and handler the movements and bounds. Most interesting of this methods are which handler bounds, in this case _contactWithPlayer()_ control the bound of the ball with a player's paddle.
 
